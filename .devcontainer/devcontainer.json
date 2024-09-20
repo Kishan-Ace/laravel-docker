@@ -1,0 +1,51 @@
+{
+	"name": "laravel-docker",
+
+	"service": "php",
+
+	// ezdev: specific services that should be started in docker-compose.
+	"runServices": ["nginx", "php"],
+
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+
+	"overrideCommand": false,
+
+	"workspaceFolder": "/workspace",
+
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": { 
+				"editor.codeActionsOnSave": [
+					"source.organizeImports",
+					"source.fixAll.eslint",
+					"source.formatDocument"
+				],
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"editor.formatOnSave": true,
+				"editor.tabSize": 2,
+				// Ensure VSCode uses pnpm instead of npm
+				"npm.packageManager": "pnpm",
+				"prettier.ignorePath": ".eslintignore",
+        "prettier.configPath": ".prettierrc",
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "eslint.workingDirectories": [{ "mode": "auto" }]
+			},		
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"dbaeumer.vscode-eslint",
+				"redhat.vscode-yaml"
+			]
+		}
+	},
+
+	// ezdev: The container starts as ezdev and then drops to ezdev user.
+	// ezdev: Do not set updateRemoteUserUID to True
+	
+	// "remoteUser": "ezdev",
+	// "containerUser": "ezdev",
+	"updateRemoteUserUID": false
+
+}
