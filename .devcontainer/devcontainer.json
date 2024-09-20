@@ -3,7 +3,6 @@
 
 	"service": "php",
 
-	// ezdev: specific services that should be started in docker-compose.
 	"runServices": ["nginx", "php"],
 
 	"dockerComposeFile": [
@@ -41,11 +40,6 @@
 		}
 	},
 
-	// ezdev: The container starts as ezdev and then drops to ezdev user.
-	// ezdev: Do not set updateRemoteUserUID to True
-	
-	// "remoteUser": "ezdev",
-	// "containerUser": "ezdev",
 	"updateRemoteUserUID": false
 
 }
